@@ -1,4 +1,6 @@
 //№1
+console.log("№1");
+
 function subtraction1(a,b){
     console.log(a-b);
 }
@@ -13,6 +15,8 @@ subtraction1(a,b);
 console.log(subtraction2(a,b));
 
 //№2
+console.log("№2");
+
 function checkAge(age){
     if(age > 0) {
         if(age < 18) {
@@ -27,11 +31,27 @@ function checkAge(age){
     }
 }
 
-let age = prompt("Введите число:");//переделать
-age = Number(age);
-checkAge(age);
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Введите возраст: ', (answer) => {
+    let age = Number(answer);
+
+    if (!isNaN(age)) {
+        checkAge(age);
+    } else {
+        console.log("Это не число!");
+    }
+    rl.close();
+});
 
 //№3
+console.log("№3");
+
 function maxNumber(num1, num2, num3){
     if(num1 >= num2 && num1 >= 3){
         return num1;
@@ -46,15 +66,19 @@ function maxNumber(num1, num2, num3){
 console.log(maxNumber(1,5,3));
 
 //№4
+console.log("№4");
+
 let variable = "Глобальная переменная";
 function f() {
-    let variable = "Локальная переменная";
+    let variable = "Локальная переменная"; //Внутри функции создается локальная переменная, которая перекрывает глобальную переменную с тем же именем
     console.log(variable);
 }
 f();
-console.log(variable);
+console.log(variable); // вне функции, используется глобальная переменная, так как локальная переменная, объявленная внутри функции, недоступна за ее пределами
 
 //№5
+console.log("№5");
+
 function max(a,b){
     if(a > b){
         return a;
@@ -70,6 +94,8 @@ function calculation(x,y,z){
 console.log(calculation(1,2,3));
 
 //№6
+console.log("№6");
+
 function calculatePerimeter(coordinates) {
     if (coordinates.length % 2 !== 0 || coordinates.length < 4) {
         return "Неверное количество координат";
@@ -95,6 +121,7 @@ let figure = [0, 0, 4, 0, 2, 3];
 console.log(calculatePerimeter(figure));
 
 //7
+console.log("№7");
 function sineOfNumber(n, sum = 0, i = 1) {
     if (i <= n) {
         return sineOfNumber(n, sum + Math.sin(i), i + 1);
