@@ -1,5 +1,5 @@
 //№1
-/*function subtraction1(a,b){
+function subtraction1(a,b){
     console.log(a-b);
 }
 
@@ -44,7 +44,7 @@ function maxNumber(num1, num2, num3){
     }
 }
 console.log(maxNumber(1,5,3));
-*/
+
 //№4
 let variable = "Глобальная переменная";
 function f() {
@@ -67,6 +67,42 @@ function calculation(x,y,z){
     return u;
 }
 
+console.log(calculation(1,2,3));
+
+//№6
+function calculatePerimeter(coordinates) {
+    if (coordinates.length % 2 !== 0 || coordinates.length < 4) {
+        return "Неверное количество координат";
+    }
+
+    let perimeter = 0;
+    let n = coordinates.length / 2;
+    let x1, x2, y1, y2, sum;
+
+    for (let i = 0; i < n; i++) {
+        x1 = coordinates[2 * i];
+        y1 = coordinates[2 * i + 1];
+        x2 = coordinates[(2 * (i + 1)) % coordinates.length];
+        y2 = coordinates[(2 * (i + 1) + 1) % coordinates.length];
+
+        sum = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        perimeter += sum;
+    }
+
+    return perimeter;
+}
+let figure = [0, 0, 4, 0, 2, 3];
+console.log(calculatePerimeter(figure));
+
+//7
+function sineOfNumber(n, sum = 0, i = 1) {
+    if (i <= n) {
+        return sineOfNumber(n, sum + Math.sin(i), i + 1);
+    }
+    return sum;
 
 
+}
 
+let n = 8;
+console.log(sineOfNumber(n));
