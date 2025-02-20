@@ -77,3 +77,98 @@ console.log(result8);
 
 //№9
 console.log("№9");
+
+function median(arr) {
+    let mid = Math.floor(arr.length / 2);
+    if (arr.length % 2 === 0) {
+        return (arr[mid - 1] + arr[mid]) / 2;
+    }
+    else {
+        return arr[mid];
+    }
+}
+
+let arr1 = [1, 2, 5, 4, 6, 8];
+let arr2 = [2, 5, 9, 5];
+let combinedArr = arr1.concat(arr2);
+combinedArr.sort();
+console.log(median(combinedArr));
+
+//№10
+console.log("№10");
+
+let arr10 = [];
+for (let i = 0; i < 10; i++) {
+    arr10.push(Math.floor(Math.random() * (100 - 1 + 1)) + 1);
+}
+console.log(arr10);
+let max_ = Math.max(...arr10);
+let min_ = Math.min(...arr10);
+
+let maxIndex = arr10.indexOf(max_);
+let minIndex = arr10.indexOf(min_);
+
+arr10[maxIndex] = min_;
+arr10[minIndex] = max_;
+console.log(arr10);
+
+//№11
+console.log("№11");
+
+function check(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] < arr[i + 1]) {
+            return i + 1;
+        }
+    }
+    return arr.reverse();
+}
+
+//let array = [10, 9, 8, 7, 6];
+let array = [10, 9, 7, 8, 6];
+
+console.log(check(array));
+
+//№12
+console.log("№12");
+
+function newArr(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (i % 2 !== 0 && arr[i] > 0) {
+            arr[i] *= 3;
+        }
+        else if (i % 2 === 0 && arr[i] < 0) {
+            arr[i] /= 5;
+        }
+    }
+    return arr;
+}
+
+let arr12 = [10, -20, 2, -6, 2, -1, -5, 4];
+console.log(newArr(arr12));
+
+//№13
+console.log("№13");
+
+let matrix = [
+    [1, -6, 3, 8, 10],
+    [-5, 0, 7, 12, -3],
+    [4, 5, -2, 9, 6],
+    [8, -1, 2, 3, 11],
+    [-7, 4, 0, -5, 8]
+];
+let min = -5;
+let max = 7;
+let arr13 = [];
+
+for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+        if (matrix[i][j] >= min && matrix[i][j] <= max) {
+            arr13.push(matrix[i][j]);
+        }
+    }
+}
+console.log(arr13);
+
+//№14
+console.log("№14");
