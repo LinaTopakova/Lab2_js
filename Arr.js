@@ -172,3 +172,50 @@ console.log(arr13);
 
 //№14
 console.log("№14");
+
+let matrix14 = [
+    [1, -6, 3, 8, 10],
+    [-5, 0, 7, 12, -3],
+    [4, 5, -2, 9, 6],
+    [8, -1, 2, 3, 11],
+    [-7, 4, 0, -5, 8]
+];
+
+let sumMax = 0;
+let productMin = 1;
+
+for (let i = 0; i < matrix.length; i++) {
+    let max_ = Math.max(...matrix14[i]);
+    sumMax += max_;
+}
+console.log(sumMax);
+
+for (let j = 0; j < matrix[0].length; j++) {
+    let minInColumn = matrix[0][j];
+    for (let i = 0; i < matrix.length; i++) {
+        if (matrix[i][j] < minInColumn) {
+            minInColumn = matrix[i][j];
+        }
+    }
+    productMin *= minInColumn;
+}
+console.log(productMin);
+
+//№15
+console.log("№15");
+
+let books = {
+    "Александр Пушкин": ["Евгений Онегин", "Руслан и Людмила"],
+    "Стивен Кинг": ["Сияние", "Оно"],
+    "Рэй Брэдбери": ["451 градус по Фаренгейту", "Вино из одуванчиков"],
+    "Толстой": ["Война и мир", "Анна Каренина"]
+};
+
+for (let author in books) {
+    console.log("Автор: ", author);
+    console.log("Книги:");
+    books[author].forEach(book => {
+        console.log(book);
+    });
+    console.log("\n");
+}
